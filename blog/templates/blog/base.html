@@ -14,6 +14,22 @@
                     <a href="{% url 'post_new' %}" class="top-menu">
                         {% include './icons/file-earmark-plus.svg' %}
                     </a>
+                    <a href="{% url 'post_draft_list' %}" class="top-menu">
+                        {% include './icons/pencil-fill.svg'%}
+                    </a>
+                    <div id="logout" class="top-menu" style="display: inline-block; margin: 0;">
+                        Hello {{ user.username }}
+                        <form action="{% url 'logout' %}" method="post" style="display: inline; margin-left: 5px;">
+                            {% csrf_token %}
+                            <button type="submit" style="background: none; border: none; padding: 0; color: #007bff; text-decoration: underline; cursor: pointer; font-size: 85%; font-family: inherit;">
+                                (Log out)
+                            </button>
+                        </form>
+                    </div>
+                    {% else %}
+                    <a href="{% url 'login' %}" class="top-menu">
+                        {% include './icons/lock-fill.svg' %}
+                    </a>
                 {% endif %}
                 <h1><a href="/">Gnappo's Blog</a></h1>
             </div>
