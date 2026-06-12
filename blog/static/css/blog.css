@@ -1,5 +1,5 @@
 .page-header {
-    background-color: #3d9255;
+    background-color: #ea7ad7;
     margin-top: 0;
     margin-bottom: 40px;
     padding: 20px 20px 20px 40px;
@@ -9,7 +9,7 @@
 .page-header h1 a,
 .page-header h1 a:visited,
 .page-header h1 a:active {
-    color: #f6e2b9;
+    color: #0a0a08;
     font-size: 52pt;
     text-decoration: none;
 }
@@ -47,9 +47,20 @@ h4 {
     margin-bottom: 80px;
 }
 
+/* --- TITOLI DEI POST (CAMBIATI DA VERDI A UN COLORE PERSONALIZZATO) --- */
+/* Se vuoi cambiare il colore del titolo, sostituisci #2c3e50 (antracite) con quello che preferisci */
+.post h1 a, 
+.post h1 a:visited,
 .post h2 a,
 .post h2 a:visited {
-    color: #468f66;
+    color: #2c3e50; 
+    text-decoration: none;
+}
+
+/* Quando passi il mouse sopra il titolo del post */
+.post h1 a:hover,
+.post h2 a:hover {
+    color: #ea7ad7; /* Diventa rosa come l'header della pagina! */
 }
 
 .post > .date,
@@ -81,6 +92,31 @@ small a:visited {
     text-decoration: none;
 }
 
+/* --- SEZIONE COMMENTI PERSONALIZZATA (MODIFICATA) --- */
 .comment {
     margin: 20px 0px 20px 20px;
+    padding: 15px;
+    background-color: #fcf8fc;       /* Uno sfondo chiarissimo che dà sul rosa per riprendere l'header */
+    border-left: 4px solid #ea7ad7;  /* Una linea verticale rosa a sinistra del commento */
+    border-radius: 4px;
+}
+
+/* Il testo "Comments: X" sotto i post e i link dentro la sezione commenti */
+.post a[href*="post_detail"], 
+.comment a {
+    color: #3d9255; /* Diventa verde scuro come i tuoi pulsanti principali, addio azzurro! */
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.post a[href*="post_detail"]:hover, 
+.comment a:hover {
+    color: #ea7ad7; /* Diventa rosa quando ci passi sopra */
+    text-decoration: underline;
+}
+
+/* Il nome di chi ha scritto il commento (il tag <strong>) */
+.comment strong {
+    color: #2c3e50; /* Un bel grigio scuro leggibile */
+    font-size: 11pt;
 }
