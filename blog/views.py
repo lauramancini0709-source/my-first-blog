@@ -32,6 +32,11 @@ def post_new(request):
 @login_required
 def post_edit(request, pk):
     post = get_object_or_404(Post, pk=pk)
+    
+    # CONTROLLO SICUREZZA: se non sei l'autore, non puoi modificare
+    if post.author != request.user:
+        return redirect('post_detail', pk=pk)
+        
     if request.method == "POST":
         form = PostForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
@@ -52,14 +57,24 @@ def post_draft_list(request):
 @login_required
 def post_publish(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    if request.method=='POST':
+    
+    # CONTROLLO SICUREZZA: se non sei l'autore, non puoi pubblicare
+    if post.author != request.user:
+        return redirect('post_detail', pk=pk)
+        
+    if request.method == 'POST':
         post.publish()
     return redirect('post_detail', pk=pk)
 
 @login_required
 def post_remove(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    if request.method=='POST':
+    
+    # CONTROLLO SICUREZZA: se non sei l'autore, non puoi cancellare
+    if post.author != request.user:
+        return redirect('post_detail', pk=pk)
+        
+    if request.method == 'POST':
         post.delete()
     return redirect('post_list')
 
@@ -93,7 +108,6 @@ def registrazione(request):
         form = RegistrazioneForm(request.POST)
         if form.is_valid():
             form.save()
-            # Dopo la registrazione, reindirizziamo l'utente al Login
             return redirect('login') 
     else:
         form = RegistrazioneForm()
