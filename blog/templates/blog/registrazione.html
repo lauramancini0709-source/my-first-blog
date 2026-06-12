@@ -1,0 +1,14 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <h2>Iscriviti al Blog</h2>
+    <form method="POST" class="post-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Iscriviti</button>
+    </form>
+    
+    <p style="margin-top: 20px;">
+        Hai già un account? <a href="{% url 'login' %}" style="color: #3d9255;">Accedi qui</a>
+    </p>
+{% endblock %}

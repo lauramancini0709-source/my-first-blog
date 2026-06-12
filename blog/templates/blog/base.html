@@ -26,9 +26,12 @@
                             </button>
                         </form>
                     </div>
-                    {% else %}
-                    <a href="{% url 'login' %}" class="top-menu">
+                {% else %}
+                    <a href="{% url 'login' %}" class="top-menu" title="Log in">
                         {% include './icons/lock-fill.svg' %}
+                    </a>
+                    <a href="{% url 'registrazione' %}" class="top-menu" style="font-size: 16pt; margin-top: 15px; margin-right: 15px;">
+                        Register
                     </a>
                 {% endif %}
                 <h1><a href="/">Gnappo's Blog</a></h1>

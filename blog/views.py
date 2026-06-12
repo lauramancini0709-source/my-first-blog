@@ -5,6 +5,7 @@ from django.shortcuts import redirect
 from .models import Post, Comment
 from django.contrib.auth.decorators import login_required
 from .forms import PostForm, CommentForm
+from .forms import PostForm, CommentForm, RegistrazioneForm
 
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
@@ -86,3 +87,14 @@ def comment_remove(request, pk):
     comment = get_object_or_404(Comment, pk=pk)
     comment.delete()
     return redirect('post_detail', pk=comment.post.pk)
+
+def registrazione(request):
+    if request.method == 'POST':
+        form = RegistrazioneForm(request.POST)
+        if form.is_valid():
+            form.save()
+            # Dopo la registrazione, reindirizziamo l'utente al Login
+            return redirect('login') 
+    else:
+        form = RegistrazioneForm()
+    return render(request, 'blog/registrazione.html', {'form': form})
