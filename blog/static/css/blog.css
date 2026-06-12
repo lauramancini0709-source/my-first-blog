@@ -1,5 +1,5 @@
 .page-header {
-    background-color: #ea7ad7;
+    background-color: #eebee6;
     margin-top: 0;
     margin-bottom: 40px;
     padding: 20px 20px 20px 40px;
@@ -9,7 +9,7 @@
 .page-header h1 a,
 .page-header h1 a:visited,
 .page-header h1 a:active {
-    color: #0a0a08;
+    color: #2c3e50;
     font-size: 52pt;
     text-decoration: none;
 }
@@ -22,7 +22,7 @@ h4 {
 }
 
 .date {
-    color: #143612;
+    color: #2c3e50;
 }
 
 .save {
@@ -60,7 +60,7 @@ h4 {
 /* Quando passi il mouse sopra il titolo del post */
 .post h1 a:hover,
 .post h2 a:hover {
-    color: #ea7ad7; /* Diventa rosa come l'header della pagina! */
+    color: #eebee6; /* Diventa rosa come l'header della pagina! */
 }
 
 .post > .date,
@@ -77,7 +77,7 @@ h4 {
 
 .btn-default:hover {
     color: #FFFFFF;
-    background-color: #3d9255;
+    background-color: #eebee6;
 }
 
 #logout, #logout a {
@@ -88,7 +88,7 @@ small a,
 small a:hover,
 small a:visited {
     font-size: 20pt;
-    color: #84d787;
+    color: #eebee6;
     text-decoration: none;
 }
 
@@ -96,7 +96,7 @@ small a:visited {
 .comment {
     margin: 20px 0px 20px 20px;
     padding: 15px;
-    background-color: #fcf8fc;       /* Uno sfondo chiarissimo che dà sul rosa per riprendere l'header */
+    background-color: #eebee6;       /* Uno sfondo chiarissimo che dà sul rosa per riprendere l'header */
     border-left: 4px solid #ea7ad7;  /* Una linea verticale rosa a sinistra del commento */
     border-radius: 4px;
 }
@@ -104,7 +104,7 @@ small a:visited {
 /* Il testo "Comments: X" sotto i post e i link dentro la sezione commenti */
 .post a[href*="post_detail"], 
 .comment a {
-    color: #3d9255; /* Diventa verde scuro come i tuoi pulsanti principali, addio azzurro! */
+    color: #ea7ad7; /* Diventa verde scuro come i tuoi pulsanti principali, addio azzurro! */
     font-weight: bold;
     text-decoration: none;
 }
