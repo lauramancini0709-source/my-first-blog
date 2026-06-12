@@ -23,6 +23,11 @@
             </aside>
         {% endif %}
         <h2>{{ post.title }}</h2>
+        {% if post.immagine %}
+            <div class="post-immagine" style="margin: 15px 0;">
+                <img src="{{ post.immagine.url }}" alt="{{ post.title }}" style="max-width: 100%; height: auto; border-radius: 8px; display: block;">
+            </div>
+        {% endif %}
         <p>{{ post.text|linebreaksbr }}</p>
     </article>
     <hr>
@@ -43,6 +48,11 @@
                 </div>
                 <strong>{{ comment.author }}</strong>
                 <p>{{ comment.text|linebreaks }}</p>
+                {% if comment.immagine %}
+                    <div class="commento-immagine" style="margin-top: 10px; margin-bottom: 10px;">
+                        <img src="{{ comment.immagine.url }}" alt="Immagine commento" style="max-width: 250px; height: auto; border-radius: 4px; display: block;">
+                    </div>
+                {% endif %}
             </div>
         {% endif %}
     {% empty %}

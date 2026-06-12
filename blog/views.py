@@ -1,8 +1,6 @@
 from django.shortcuts import redirect, render
 from django.utils import timezone
-from .models import Post
 from django.shortcuts import render, get_object_or_404
-from .forms import PostForm
 from django.shortcuts import redirect
 from .models import Post, Comment
 from django.contrib.auth.decorators import login_required
@@ -19,7 +17,7 @@ def post_detail(request, pk):
 @login_required
 def post_new(request):
     if request.method == "POST":
-        form = PostForm(request.POST)
+        form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
@@ -34,7 +32,7 @@ def post_new(request):
 def post_edit(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == "POST":
-        form = PostForm(request.POST, instance=post)
+        form = PostForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
@@ -67,7 +65,7 @@ def post_remove(request, pk):
 def add_comment_to_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == "POST":
-        form = CommentForm(request.POST)
+        form = CommentForm(request.POST, request.FILES)
         if form.is_valid():
             comment = form.save(commit=False)
             comment.post = post
