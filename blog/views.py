@@ -112,3 +112,6 @@ def registrazione(request):
     else:
         form = RegistrazioneForm()
     return render(request, 'blog/registrazione.html', {'form': form})
+
+def intro_page(request):
+    return render(request, 'blog/intro_page.html', {})

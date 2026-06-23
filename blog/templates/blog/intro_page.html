@@ -1,0 +1,58 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+<style>
+    /* Sfondo e azzeramento dei blocchi che disturbano la visualizzazione */
+    body {
+        background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), 
+                    url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1920') no-repeat center center fixed !important;
+        background-size: cover !important;
+        min-height: 100vh;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Nascondiamo l'header del blog solo in questa pagina */
+    .page-header {
+        display: none !important;
+    }
+
+    /* Annulliamo i margini e le altezze predefinite dei contenitori di Django Girls */
+    .content.container, .row, .col {
+        height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+
+    /* Struttura principale della Card: solida, centrata e flessibile */
+    .intro-box {
+        background: rgba(255, 255, 255, 0.96);
+        padding: 50px 35px;
+        border-radius: 16px;
+        box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.4);
+        text-align: center;
+        max-width: 550px;
+        margin: 40px auto !important; /* Centra orizzontalmente nel browser */
+    }
+</style>
+
+<div class="intro-box">
+    <h1 style="font-family: 'Lobster', Georgia, serif !important; color: #134324; font-size: 3.5rem; margin-bottom: 20px; font-weight: normal;">
+        Gnappo's Blog
+    </h1>
+    <p class="lead" style="color: #333; font-size: 1.25rem; font-family: system-ui, -apple-system, sans-serif;">
+        Benvenuto nel mio Blog!Pronto per una nuova avventura?
+    </p>
+    <hr style="margin: 25px 0; border-top: 1px solid #ddd;">
+    <p style="color: #666; font-family: system-ui, -apple-system, sans-serif;">Vuoi scoprire i miei articoli?</p>
+    <a class="btn btn-lg mt-2" href="{% url 'post_list' %}" style="background-color: #134324; color: white; padding: 12px 35px; font-weight: bold; border-radius: 30px; transition: 0.3s; box-shadow: 0 4px 15px rgba(194, 81, 81, 0.4); font-family: system-ui, -apple-system, sans-serif; border: none;">
+        Entra nel Blog
+    </a>
+</div>
+{% endblock %}
